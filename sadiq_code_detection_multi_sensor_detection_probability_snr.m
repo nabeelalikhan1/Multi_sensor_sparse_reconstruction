@@ -46,17 +46,17 @@ S_level=32;
 
 num=2;
 
-N_S=2500;
-%N_S=20;
+N_S=5;
+
 llll=0;
 Ruho=2;
 SSS=0;
-for S_L=32:16:96
+for S_L=32:32:96
  %   for S_L=0:32:96
 
     SSS=SSS+1;
     llll=0;
-for SNR=-10:2:0
+for SNR=0:5:10
     llll=llll+1;
     P=0;
     Q=0;
@@ -142,6 +142,7 @@ end
 end
 figure;
 SNR=-10:2:0;
+SNR=0:5:10;
 plot(SNR,PDD1(1,:),'o-');
 hold on;
 plot(SNR,PDD2(1,:),'rx-');
@@ -149,7 +150,7 @@ plot(SNR,PDD2(1,:),'rx-');
 xlabel('Signal to noise ratio (dB)');
 ylabel('Detection Probability');
 legend('The Proposed method', 'Generalized Coherence');
-
+title(' Number of missing samples equal to 32')
 
 figure;
 plot(SNR,PDD1(2,:),'o-');
@@ -160,6 +161,7 @@ xlabel('Signal to noise ratio (dB)');
 ylabel('Detection Probability');
 legend('The Proposed method', 'Generalized Coherence');
 
+title(' Number of missing samples equal to 64')
 
 
 figure;
@@ -170,25 +172,26 @@ plot(SNR,PDD2(3,:),'rx-');
 xlabel('Signal to noise ratio (dB)');
 ylabel('Detection Probability');
 legend('The Proposed method', 'Generalized Coherence');
+title(' Number of missing samples equal to 96')
 % 
- figure;
- plot(SNR,PDD1(4,:),'o-');
- hold on;
- plot(SNR,PDD2(4,:),'rx-');
+% figure;
+% plot(SNR,PDD1(4,:),'o-');
+% hold on;
+% plot(SNR,PDD2(4,:),'rx-');
 % 
- xlabel('Signal to noise ratio (dB)');
- ylabel('Detection Probability');
- legend('The Proposed method', 'Generalized Coherence');
+% xlabel('Signal to noise ratio (dB)');
+% ylabel('Detection Probability');
+% legend('The Proposed method', 'Generalized Coherence');
 % 
 % 
- figure;
- plot(SNR,PDD1(5,:),'o-');
- hold on;
- plot(SNR,PDD2(5,:),'rx-');
+% figure;
+% plot(SNR,PDD1(5,:),'o-');
+% hold on;
+% plot(SNR,PDD2(5,:),'rx-');
 % 
- xlabel('Signal to noise ratio (dB)');
- ylabel('Detection Probability');
- legend('The Proposed method', 'Generalized Coherence');
+% xlabel('Signal to noise ratio (dB)');
+% ylabel('Detection Probability');
+% legend('The Proposed method', 'Generalized Coherence');
 % 
 % 
 % figure;

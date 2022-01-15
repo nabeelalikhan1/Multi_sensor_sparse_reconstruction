@@ -76,8 +76,7 @@ D=feval(Trans,D)';
 % Gradient algorithm
 Gr=zeros(1,N);
 y0=y;
-%Delta=0.0001;
-for p=1:100
+for p=1:35
     Ind=3;
     DD=D*Delta;
     CC=2*Delta/(2*Delta*N);
@@ -85,14 +84,8 @@ for p=1:100
     for k=1:Nit
         it=it+1;
         Y=repmat(feval(Trans,y).',1,K);
-        % MY CODE
-%         Y2=repmat(feval(Trans,y+Delta).',1,K);
-%         Y1=repmat(feval(Trans,y-Delta).',1,K);
-%         gg=(sum(abs(Y2))-sum(abs(Y1)));
-        % MY CODE ENDS
+        
         gg=(sum(abs(Y+DD'))-sum(abs(Y-DD')));
-        
-        
         Gr(Nxx)=gg;    
         y=y-CC*Gr;
         
